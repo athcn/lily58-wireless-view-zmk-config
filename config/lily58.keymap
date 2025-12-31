@@ -9,6 +9,7 @@
 #include <zmk-helpers/key-labels/lily58.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 #define QUICK_TAP_MS 175
 
@@ -76,10 +77,10 @@
             display-name = "Base";
             bindings = <
 &kp ESC        &kp N1       &kp N2       &kp N3        &kp N4            &kp N5                              &kp N6     &kp N7        &kp N8        &kp N9       &kp N0               &mt RIGHT_BRACE LEFT_BRACE
-&kp TAB        &kp Q        &kp W        &kp E         &kp R             &kp T                               &kp Y      &kp U         &kp I         &kp O        &kp P                &mt RIGHT_BRACKET LEFT_BRACKET
+&kp TAB        &kp Q        &kp W        &kp E         &kp R             &kp T                               &kp Y      &kp U         &kp I         &kp O        &kp P                &kp MINUS
 &kp BACKSPACE  &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F      &kp G                               &kp H      &hml LCTRL J  &hml RSHFT K  &hml LALT L  &hml LGUI SEMI       &mt DOUBLE_QUOTES SINGLE_QUOTE
 &kp LSHFT      &kp Z        &kp X        &kp C         &kp V             &kp B   &kp LBKT       &kp RBKT     &kp N      &kp M         &kp COMMA     &kp DOT      &mt BACKSLASH SLASH  &kp RSHFT
-                                         &kp LALT      &kp LEFT_COMMAND  &mo 1   &lt 2 SPACE    &lt 1 ENTER  &lt 3 TAB  &kp BSPC      &kp RCTRL
+                                         &none         &kp LEFT_COMMAND  &mo 4   &lt 2 SPACE    &lt 1 ENTER  &lt 3 TAB  &kp BSPC      &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -107,11 +108,11 @@
 
         Func {
             bindings = <
-&trans  &trans         &trans        &trans         &trans         &trans                        &trans            &trans          &trans               &trans      &trans  &trans
-&trans  &kp F12        &kp F7        &kp F8         &kp F9         &trans                        &trans            &kp C_PREVIOUS  &kp C_VOL_UP         &kp C_NEXT  &trans  &trans
-&trans  &hml LGUI F11  &hml LALT F4  &hml LSHFT F5  &hml LCTRL F6  &trans                        &trans            &trans          &hml LSHFT C_VOL_DN  &trans      &trans  &trans
-&trans  &kp F10        &kp F1        &kp F2         &kp F3         &trans  &trans    &trans      &trans            &trans          &trans               &trans      &trans  &trans
-                                     &trans         &trans         &trans  &trans    &kp C_MUTE  &kp C_PLAY_PAUSE  &trans          &trans
+&trans  &trans         &trans        &trans         &trans         &trans                        &trans            &trans           &trans               &trans      &trans  &trans
+&trans  &kp F12        &kp F7        &kp F8         &kp F9         &trans                        &trans            &kp C_PREVIOUS   &kp C_VOL_UP         &kp C_NEXT  &trans  &trans
+&trans  &hml LGUI F11  &hml LALT F4  &hml LSHFT F5  &hml LCTRL F6  &trans                        &trans            &trans           &hml LSHFT C_VOL_DN  &trans      &trans  &trans
+&trans  &kp F10        &kp F1        &kp F2         &kp F3         &trans  &trans    &trans      &trans            &kp PRINTSCREEN  &kp INSERT           &trans      &trans  &trans
+                                     &trans         &trans         &trans  &trans    &kp C_MUTE  &kp C_PLAY_PAUSE  &trans           &trans
             >;
 
             label = "Fn";
@@ -131,16 +132,16 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        Mouse {
+        Navigation {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
+&trans  &trans  &trans    &trans    &trans     &trans                          &trans          &trans          &trans          &trans           &trans           &trans
+&trans  &trans  &trans    &kp UP    &trans     &trans                          &trans          &kp PAGE_UP     &mmv MOVE_UP    &kp PAGE_DOWN    &trans           &trans
+&trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans                          &msc SCRL_LEFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_RIGHT  &trans
+&trans  &trans  &trans    &trans    &trans     &trans  &trans    &trans        &trans          &mkp LCLK       &mkp MCLK       &mkp RCLK        &trans           &trans
+                          &trans    &trans     &trans  &trans    &msc SCRL_UP  &msc SCRL_DOWN  &trans          &trans
             >;
 
-            label = "Mouse";
+            label = "Nav";
         };
     };
 };
