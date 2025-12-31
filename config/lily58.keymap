@@ -11,6 +11,8 @@
 #define LILY58_STANDARD_LABELS
 #include <zmk-helpers/key-labels/lily58.h>
 
+#define QUICK_TAP_MS 175
+
 /*                                      58 KEY MATRIX / LAYOUT MAPPING
   ╭────────────────────────────┬────────────────────────────╮ ╭─────────────────────────────┬─────────────────────────────╮
   │  0   1   2   3   4   5     │      6   7   8   9  10  11 │ │ LN5 LN4 LN3 LN2 LN1 LN0     │     RN0 RN1 RN2 RN3 RN4 RN5 │
@@ -24,6 +26,12 @@
 #define THUMBS_L LH3 LH2 LH1 LH0
 #define THUMBS_R RH0 RH1 RH2 RH3
 #define THUMBS THUMBS_L THUMBS_R
+
+&lt {
+  flavor = "balanced";
+  tapping-term-ms = <200>;
+  quick-tap-ms = <QUICK_TAP_MS>;
+};
 
 / {
     behaviors {
